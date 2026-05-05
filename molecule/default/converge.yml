@@ -1,0 +1,13 @@
+---
+- name: Converge linux-base
+  hosts: all
+  become: true
+  gather_facts: true
+
+  vars_files:
+    - ../../vars/vars.yml
+
+  roles:
+    - role: linux_base
+    - role: devsec.hardening.os_hardening
+    - role: devsec.hardening.ssh_hardening

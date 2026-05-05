@@ -1,0 +1,11 @@
+skip_list:
+  - command-instead-of-shell
+  - no-changed-when
+  - risky-shell-pipe
+  - role-name
+  - file-permissions
+  - var-naming[no-role-prefix]
+exclude_paths:
+  - .ansible/
+  - .cache/
+  - .molecule/

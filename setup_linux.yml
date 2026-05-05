@@ -1,0 +1,17 @@
+---
+- name: Apply base Linux configuration
+  hosts: linux
+  become: true
+  gather_facts: true
+
+  vars_files:
+    - vars/vars.yml
+
+  roles:
+    - role: linux_base
+    - role: devsec.hardening.os_hardening
+    - role: devsec.hardening.ssh_hardening
+
+  handlers:
+    - name: Import handlers
+      ansible.builtin.import_tasks: handlers/main.yml

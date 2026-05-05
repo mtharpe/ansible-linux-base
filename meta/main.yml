@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  role_name: linux_base
+  namespace: mtharpe
+  author: mtharpe
+  description: Base Linux configuration (successor to chef-linux-base-recipe)
+  license: Apache-2.0
+  min_ansible_version: "2.14"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
+        - noble
+    - name: Debian
+      versions:
+        - bookworm
+    - name: EL
+      versions:
+        - "8"
+        - "9"

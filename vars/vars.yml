@@ -1,0 +1,23 @@
+---
+# Header stamped into rendered config files via `{{ ansible_managed }}`.
+ansible_managed: "Ansible managed — do not edit by hand"
+
+# Base packages installed on all Linux hosts. Mirrors the chef-linux-base-recipe
+# packages list (bash, curl, wget, unzip, mlocate, vim).
+linux_base_packages:
+  - bash
+  - curl
+  - wget
+  - unzip
+  - mlocate
+  - vim
+
+# Packages purged from Ubuntu hosts (Landscape client, AppArmor, UFW). Mirrors
+# the chef-linux-base-recipe purge list.
+linux_base_ubuntu_purge_packages:
+  - apparmor
+  - landscape-client-ui
+  - landscape-client-ui-install
+  - landscape-client
+  - landscape-common
+  - ufw

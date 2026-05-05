@@ -1,0 +1,10 @@
+---
+- name: Detect container environment
+  ansible.builtin.set_fact:
+    is_container: "{{ ansible_facts['virtualization_type'] | default('') in
+      ['container', 'docker', 'podman', 'lxc', 'systemd-nspawn', 'oci'] }}"
+
+- name: Setup repos
+  ansible.builtin.import_tasks: repos.yml
+- name: Setup packages
+  ansible.builtin.import_tasks: packages.yml

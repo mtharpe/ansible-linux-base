@@ -1,0 +1,24 @@
+---
+dependency:
+  name: galaxy
+  options:
+    requirements-file: requirements.yml
+driver:
+  name: docker
+platforms:
+  - name: instance-ubuntu
+    image: ubuntu:24.04
+    privileged: true
+    command: /bin/bash -c "while true; do sleep 30; done"
+  - name: instance-rocky
+    image: rockylinux:9
+    privileged: true
+    command: /bin/bash -c "while true; do sleep 30; done"
+provisioner:
+  name: ansible
+  env:
+    ANSIBLE_ROLES_PATH: "${MOLECULE_PROJECT_DIRECTORY}/roles"
+  playbooks:
+    converge: converge.yml
+verifier:
+  name: ansible

@@ -1,0 +1,16 @@
+---
+# Equivalent of the Ubuntu purge block in chef-linux-base-recipe::packages.
+# Removes the Landscape client, AppArmor, and UFW so subsequent hardening
+# (devsec.hardening.os_hardening) owns the firewall and MAC posture.
+- name: Purge Ubuntu-default packages
+  ansible.builtin.apt:
+    name: "{{ linux_base_ubuntu_purge_packages }}"
+    state: absent
+    purge: true
+    autoremove: true
+  when: ansible_facts['distribution'] == 'Ubuntu'
+
+- name: Install base Linux packages
+  ansible.builtin.package:
+    name: "{{ linux_base_packages }}"
+    state: present
