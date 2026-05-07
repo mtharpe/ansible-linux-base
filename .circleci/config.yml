@@ -1,0 +1,36 @@
+version: 2.1
+description: Lint Ansible playbooks and YAML
+
+executors:
+  python:
+    docker:
+      - image: cimg/python:3.12
+
+jobs:
+  yamllint:
+    executor: python
+    steps:
+      - checkout
+      - run:
+          name: Install yamllint
+          command: python -m pip install --upgrade pip yamllint
+      - run:
+          name: yamllint
+          command: yamllint .
+
+  ansible-lint:
+    executor: python
+    steps:
+      - checkout
+      - run:
+          name: Install ansible-lint
+          command: python -m pip install --upgrade pip ansible-lint
+      - run:
+          name: ansible-lint
+          command: ansible-lint
+
+workflows:
+  validate:
+    jobs:
+      - yamllint
+      - ansible-lint
