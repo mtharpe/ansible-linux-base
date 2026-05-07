@@ -1,3 +1,5 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/mtharpe/ansible-linux-base/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/mtharpe/ansible-linux-base/tree/main)
+
 # ansible-linux-base
 
 Base Linux configuration playbook. Successor to [`chef-linux-base-recipe`](https://github.com/mtharpe/chef-linux-base-recipe).
